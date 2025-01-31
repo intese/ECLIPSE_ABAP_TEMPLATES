@@ -3,23 +3,23 @@ class ${ltcl_} definition final for testing
   risk level ${harmless}.
 
   private section.
-		types:
-      ${z_tab} type standard table of ${z_tab} with empty key.
+	types:
+      	${z_tab} type standard table of ${z_tab} with empty key.
 
-		class-data: osql_env type ref to if_osql_test_environment.
-		"class-data: cds_env type ref to if_cds_test_environment.
+	class-data: osql_env type ref to if_osql_test_environment.
+	"class-data: cds_env type ref to if_cds_test_environment.
 
-		class-methods:
-			class_setup,
-			class_teardown.
+	class-methods:
+		class_setup,
+		class_teardown.
 
-		data cut type ref to ${zcl_}. " reference to your class
+	data cut type ref to ${zcl_}. " reference to your class
 
-    methods:
-			setup,
-			prepare_test_data,
-      ${succ_test} for testing raising cx_static_check,
-			${fail_test} for testing raising cx_static_check.
+	methods:
+		setup,
+		prepare_test_data,
+      		${succ_test} for testing raising cx_static_check,
+		${fail_test} for testing raising cx_static_check.
 endclass.
 
 
@@ -29,15 +29,15 @@ class ${ltcl_} implementation.
 		cut = new #( ).
 	endmethod.
 
-  method ${succ_test}.
+  	method ${succ_test}.
 		prepare_test_data( ).
-    ${cursor}cl_abap_unit_assert=>fail( 'Implement your first test here' ).
-  endmethod.
+    	${cursor}cl_abap_unit_assert=>fail( 'Implement your first test here' ).
+  	endmethod.
 
-  method ${fail_test}.
+	method ${fail_test}.
 		prepare_test_data( ).
-    ${cursor}cl_abap_unit_assert=>fail( 'Implement your first test here' ).
-  endmethod.
+    	${cursor}cl_abap_unit_assert=>fail( 'Implement your first test here' ).
+  	endmethod.
 
 	method class_setup.
 		osql_env = cl_osql_test_environment=>create(
@@ -55,11 +55,10 @@ class ${ltcl_} implementation.
 	endmethod.
 
 	method prepare_test_data.
-  	data(${z_tab}_itab) = value ${z_tab}(
-    	( ${attribute} = '' )
-  	).
+  		data(${z_tab}_itab) = value ${z_tab}(
+    			( ${attribute} = '' )
+  		).
 
-  	osql_env->insert_test_data( ${z_tab}_itab ).
+  		osql_env->insert_test_data( ${z_tab}_itab ).
 	endmethod.
-
 endclass.
