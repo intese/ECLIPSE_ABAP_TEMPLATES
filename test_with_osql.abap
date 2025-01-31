@@ -40,6 +40,11 @@ class ${ltcl_} implementation.
   endmethod.
 
 	method class_setup.
+		osql_env = cl_osql_test_environment=>create(
+        		value #(
+          			( '${z_tab}' )
+        		)
+      		).
 		"cds_env->clear_doubles( ).
     		osql_env->clear_doubles( ).
 	endmethod.
