@@ -13,7 +13,7 @@ class ${ltcl_} definition final for testing
 			class_setup,
 			class_teardown.
 
-		data cut type ref to ${zcl_}.
+		data cut type ref to ${zcl_}. " reference to your class
 
     methods:
 			setup,
@@ -41,8 +41,7 @@ class ${ltcl_} implementation.
 
 	method class_setup.
 		"cds_env->clear_doubles( ).
-    osql_env->clear_doubles( ).
-    cut = new #( ).
+    		osql_env->clear_doubles( ).
 	endmethod.
 
 	method class_teardown.
